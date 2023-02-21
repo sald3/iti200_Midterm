@@ -9,9 +9,9 @@ const PORT = process.env.PORT || 3000;
 
 app.get("/prices", (req, res) => {
     let prices = [
-    '$2',
-    '$3',
-    '$4'
+    '$97.00',
+    '$103.00',
+    '$87.00'
     ]
     res.json(prices);
 });
