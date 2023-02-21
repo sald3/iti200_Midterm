@@ -1,28 +1,21 @@
-const http = require("http");
+const cors = require("cors");
+const express = require("express");
+const app = express();
+
+app.use(cors());
 
 const PORT = process.env.PORT || 3000;
 
-let server = http.createServer((request, response) => {
 
-    if (request.url == "/api/users") {
-        let users =  [
-            {
-                "name": "user_1"
-            },
-            {
-                "name": "user_2"
-            },
-            {
-                "name": "user_3"
-            }
-        ]
-        response.setHeader('Access-Control-Allow-Origin', '*');
-        response.write(JSON.stringify(users));
-    } else {
-        response.write("Error");
-    }
-
-    response.end();
+app.get("/prices", (req, res) => {
+    let prices = [
+    '$2',
+    '$3',
+    '$4'
+    ]
+    res.json(prices);
 });
 
-server.listen(PORT);
+app.listen(PORT, () => {
+    console.log("Listening on port " + PORT);
+});
