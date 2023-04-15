@@ -6,15 +6,36 @@ app.use(cors());
 
 const PORT = process.env.PORT || 3000;
 
+app.post("/api/users/create", (req, res) => {
 
-app.get("/prices", (req, res) => {
-    let prices = [
-    '$97.00',
-    '$103.00',
-    '$87.00'
-    ]
-    res.json(prices);
-});
+    console.log(req.body);
+
+    const firstName = req.body.fisrtName;
+    const lastName = req.body.lastName;
+    const address = req.body.address;
+    const fruit = req.body.fruit;
+    const quantity = req.body.quantity;
+
+    const sql = "INSERT INTO orderinfo (firstName, lastName, adress, fruit, quantity) VALUES (" + firstName + ", '" + lastName + "', '" + address + ", '" + fruit + "', '" + quantity + "')";
+
+    pool.query(sql, (error, results) => {
+
+        if (error) throw error
+
+        res.status(200).json(results.rows)
+    });
+
+    app.get("/api/users", (req, res)=>{
+        pool.query('SELECT * FROM orderinfo ORDER BY orderid DESC LIMIT 1', (error, results) => {
+
+            if (error) throw error
+
+            res.status(200).json(results.rows)
+        })
+
+    });
+
+})
 
 app.listen(PORT, () => {
     console.log("Listening on port " + PORT);
