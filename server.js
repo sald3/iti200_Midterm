@@ -14,7 +14,6 @@ const pool = new Pool({
     port: 5432,
 })
 
-const PORT = process.env.PORT || 3000;
 
 app.post("/api/users/create", (req, res) => {
 
@@ -47,6 +46,6 @@ app.post("/api/users/create", (req, res) => {
 
 })
 
-app.listen(PORT, () => {
+app.listen(3000, () => {
     console.log("Listening on port " + PORT);
 });
