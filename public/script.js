@@ -28,7 +28,11 @@ $(document).ready(function () {
 
                 });
             });
-
+            $("#First Name").val("");
+            $("#Last Name").val("");
+            $("#Address").val("");
+            $("#Fruit").val("");
+            $("#Quantity").val("");
         });
         return false;
     });
