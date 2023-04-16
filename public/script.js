@@ -24,9 +24,7 @@ $(document).ready(function () {
             $.post( "/api/users/create", data, function( data ) {
                 console.log("Done");
                 $.get("/api/users", function (data) {
-                    for(let i = 0; i < data.length; i++) {
-                        $("#orderNumber > tbody").append("<tr><td>" + data[i].id + "</td><td>" + data[i].name + "</td><td>" + data[i].email + "</td></tr>");
-                    }
+                    console.log(data);
 
                 });
             });
