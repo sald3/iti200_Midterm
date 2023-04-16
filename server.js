@@ -25,7 +25,7 @@ app.post("/api/users/create", (req, res) => {
     const fruit = req.body.fruit;
     const quantity = req.body.quantity;
 
-    const sql = "INSERT INTO orderinfo (firstName, lastName, adress, fruit, quantity) VALUES ('"+ firstName + "', '" + lastName + "', '" + address + "', '" + fruit + "', " + quantity + ")";
+    const sql = "INSERT INTO orderinfo (firstName, lastName, address, fruit, quantity) VALUES ('"+ firstName + "', '" + lastName + "', '" + address + "', '" + fruit + "', " + quantity + ")";
 
     pool.query(sql, (error, results) => {
 
