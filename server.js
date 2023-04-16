@@ -7,10 +7,10 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended: true}));
 
 const pool = new Pool({
-    host: 'localhost',
+    host: 'database-1.cl2iw6zrlxyf.us-east-1.rds.amazonaws.com',
     database: 'postgres',
     user: 'postgres',
-    password: 'Bluejackes3',
+    password: 'postgres',
     port: 5432,
 })
 
@@ -19,7 +19,7 @@ app.post("/api/users/create", (req, res) => {
 
     console.log(req.body);
 
-    const firstName = req.body.fisrtName;
+    const firstName = req.body.firstName;
     const lastName = req.body.lastName;
     const address = req.body.address;
     const fruit = req.body.fruit;
@@ -46,6 +46,6 @@ app.post("/api/users/create", (req, res) => {
 
 })
 
-app.listen(3000, () => {
-    console.log("Listening on port " + PORT);
+app.listen(3000, function (){
+    console.log("Listening on port 3000");
 });
