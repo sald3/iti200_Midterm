@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $("#btnClear").click(function () {
+    $("#resetOrder").click(function () {
         $("#First Name").val("");
         $("#Last Name").val("");
         $("#Address").val("");
@@ -20,7 +20,7 @@ $(document).ready(function () {
 
         console.log(data);
 
-        $("#saveOrder").click(function sendOrder() {
+        $("#submitOrder").click(function sendOrder() {
             $.post( "/api/users/create", data, function( data ) {
                 console.log("Done");
                 $.get("/api/users", function (data) {
