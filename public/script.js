@@ -20,14 +20,13 @@ $(document).ready(function () {
 
         console.log(data);
 
-        $("#submitOrder").click(function sendOrder() {
             $.post( "/api/users/create", data, function( data ) {
                 console.log("Done");
                 $.get("/api/users", function (data) {
                     console.log(data);
 
                 });
-            });
+                
             $("#First Name").val("");
             $("#Last Name").val("");
             $("#Address").val("");
